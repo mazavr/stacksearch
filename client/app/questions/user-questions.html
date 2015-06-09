@@ -1,0 +1,32 @@
+<h4>User questions</h4>
+<table class="table table-condensed" st-table="vm.questions" st-pipe="vm.getPage">
+    <thead>
+    <th>Theme</th>
+    <th>Answers</th>
+    <th>Tags</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="q in vm.questions">
+        <td>
+            {{q.title}}
+        </td>
+        <td>
+            {{q.answer_count}}
+        </td>
+        <td>
+            <div class="label-queue">
+                <span class="label label-default" ng-repeat="tag in q.tags">
+                    {{tag}}
+                </span>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4" class="text-center">
+            <div st-pagination="" st-items-by-page="10" st-displayed-pages="7" st-template="np-pagination.tpl.html"></div>
+        </td>
+    </tr>
+    </tfoot>
+</table>

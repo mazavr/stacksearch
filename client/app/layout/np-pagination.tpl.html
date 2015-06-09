@@ -1,0 +1,13 @@
+<nav ng-if="pages.length >= 2">
+    <ul class="pagination">
+        <li>
+            <a ng-click="selectPage(currentPage - 1)">prev</a>
+        </li>
+        <li>
+            <span>{{currentPage}}</span>
+        </li>
+        <li>
+            <a ng-click="selectPage(currentPage + 1)">next</a>
+        </li>
+    </ul>
+</nav>

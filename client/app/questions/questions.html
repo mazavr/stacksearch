@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-6">
+        <h4>Search by: {{vm.searchTitle}}</h4>
+        <table class="table table-condensed" st-table="vm.questions" st-pipe="vm.getPage">
+            <thead>
+            <th>Theme</th>
+            <th>Author</th>
+            <th>Answers</th>
+            <th>Tags</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="q in vm.questions">
+                <td>
+                    <a ui-sref="question-details({id: q.question_id})">
+                        {{q.title}}
+                    </a>
+                </td>
+                <td>
+                    <a ui-sref=".user-questions({id: q.owner.user_id})">
+                        {{q.owner.display_name}}
+                    </a>
+                </td>
+                <td>{{q.answer_count}}</td>
+                <td>
+                    <div class="label-queue">
+                        <a ui-sref=".tag-questions({id: tag})" class="label label-info" ng-repeat="tag in q.tags">
+                            {{tag}}
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4" class="text-center">
+                    <div st-pagination="" st-items-by-page="10" st-displayed-pages="7" st-template="np-pagination.tpl.html"></div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <div ui-view>
+            <h3>Fast view panel</h3>
+            <p>Click on tag or author name to display relevant questions.</p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+{
+  "name": "stacksearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --content-base client"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.3.16",
+    "angular-smart-table": "^2.0.2",
+    "angular-ui-router": "^0.2.15",
+    "bootstrap": "^3.3.4",
+    "bootstrap-webpack": "0.0.3",
+    "css-loader": "^0.14.4",
+    "html-loader": "^0.3.0",
+    "jquery": "^2.1.4",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "ng-cache-loader": "0.0.9",
+    "node-libs-browser": "^0.5.2",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
+  }
+}
