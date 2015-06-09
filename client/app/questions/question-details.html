@@ -1,36 +1,41 @@
-<h3>{{vm.question.title}}</h3>
-<div>
-    by <span>{{vm.question.owner.display_name}}</span>
+<div class="row">
+    <div class="col-md-12">
+        <h4>{{vm.question.title}}</h4>
+
+        <div>
+            by <span>{{vm.question.owner.display_name}}</span>
+        </div>
+        <div>
+            Answers count: {{vm.question.answer_count}}
+        </div>
+        <h4>Answers</h4>
+        <table class="table table-condensed" st-table="vm.answers" st-pipe="vm.getPage">
+            <thead>
+            <th st-sort="creation">Date <span class="glyphicon"></span></th>
+            <th st-sort="votes">Score <span class="glyphicon"></span></th>
+            <th>User</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="a in vm.answers">
+                <td>
+                    {{a.creation_date * 1000 | date : 'yyyy-MM-dd HH:mm' }}
+                </td>
+                <td>
+                    {{a.score}}
+                </td>
+                <td>
+                    {{a.owner.display_name}}
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="3" class="text-center">
+                    <div st-pagination="" st-items-by-page="10" st-displayed-pages="7"
+                         st-template="np-pagination.tpl.html"></div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
 </div>
-<div>
-    Answers count: {{vm.question.answer_count}}
-</div>
-<h4>Answers</h4>
-<table class="table table-condensed" st-table="vm.answers" st-pipe="vm.getPage">
-    <thead>
-    <th st-sort="creation">Date <span class="glyphicon"></span></th>
-    <th>Score</th>
-    <th>User</th>
-    </thead>
-    <tbody>
-    <tr ng-repeat="a in vm.answers">
-        <td>
-            {{a.creation_date * 1000 | date : 'yyyy-MM-dd HH:mm' }}
-        </td>
-        <td>
-            {{a.score}}
-        </td>
-        <td>
-            {{a.owner.display_name}}
-        </td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-        <td colspan="3" class="text-center">
-            <div st-pagination="" st-items-by-page="10" st-displayed-pages="7"
-                 st-template="np-pagination.tpl.html"></div>
-        </td>
-    </tr>
-    </tfoot>
-</table>
