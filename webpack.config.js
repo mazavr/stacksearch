@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 
 module.exports = {
-  //context: __dirname + '/app',
   entry: [
     'style!css!animate.css/animate.css',
     'bootstrap-webpack!./bootstrap.config.js',

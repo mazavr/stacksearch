@@ -1,5 +1,5 @@
 module.exports = function (ngModule) {
-  ngModule.factory('QuestionsService', function ($http, API_BASE_PATH) {
+  ngModule.factory('QuestionsService', ['$http', 'API_BASE_PATH', function ($http, API_BASE_PATH) {
     return {
       getQuestions: getQuestions,
       getUserQuestions: getUserQuestions,
@@ -42,5 +42,5 @@ module.exports = function (ngModule) {
         }, params)
       });
     }
-  })
+  }])
 };

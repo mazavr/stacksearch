@@ -1,7 +1,7 @@
 require('angular-smart-table');
 
 module.exports = function (ngModule) {
-  ngModule.controller('QuestionsController', function (QuestionsService, $stateParams) {
+  ngModule.controller('QuestionsController', ['QuestionsService', '$stateParams', function (QuestionsService, $stateParams) {
     var vm = this;
 
     vm.questions = [];
@@ -22,5 +22,5 @@ module.exports = function (ngModule) {
           tableState.pagination.numberOfPages = data.has_more ? currentPage + 1 : currentPage;
         });
     }
-  })
+  }])
 };

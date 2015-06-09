@@ -4,21 +4,21 @@ require('angular-animate');
 
 require('ng-cache!./layout/np-pagination.tpl.html');
 
-var stackSearchModule = angular.module('stacksearch', [
+angular.module('stacksearch', [
   'ui.router',
   'smart-table',
   'ngAnimate'
 ]);
 
-stackSearchModule.value('API_BASE_PATH', 'http://api.stackexchange.com/2.2');
+angular.module('stacksearch').value('API_BASE_PATH', 'http://api.stackexchange.com/2.2');
 
-require('./services/questions-service')(stackSearchModule);
-require('./questions/question-detail.controller')(stackSearchModule);
-require('./questions/questions.controller')(stackSearchModule);
-require('./questions/user-questions.controller')(stackSearchModule);
-require('./questions/tag-questions.controller')(stackSearchModule);
+require('./services/questions-service')(angular.module('stacksearch'));
+require('./questions/question-detail.controller')(angular.module('stacksearch'));
+require('./questions/questions.controller')(angular.module('stacksearch'));
+require('./questions/user-questions.controller')(angular.module('stacksearch'));
+require('./questions/tag-questions.controller')(angular.module('stacksearch'));
 
-stackSearchModule.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+angular.module('stacksearch').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
   //$locationProvider.html5mode({enabled: true, requireBase: false});
   $urlRouterProvider.otherwise('/');
 
@@ -47,4 +47,4 @@ stackSearchModule.config(function ($stateProvider, $urlRouterProvider, $location
       controller: 'QuestionDetailsController as vm',
       template: require('./questions/question-details.html')
     })
-});
+}]);
