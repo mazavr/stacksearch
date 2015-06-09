@@ -20,6 +20,7 @@ module.exports = {
 
     "component-animations": true,
     //"glyphicons":true,
+    "glyphicons": true,
     "dropdowns": true,
     "button-groups": true,
     "input-groups": true,
