@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --content-base client"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base client"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.3.16",
+    "angular-animate": "^1.3.16",
     "angular-smart-table": "^2.0.2",
     "angular-ui-router": "^0.2.15",
+    "animate.css": "^3.2.5",
     "bootstrap": "^3.3.4",
     "bootstrap-webpack": "0.0.3",
     "css-loader": "^0.14.4",

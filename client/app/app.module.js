@@ -1,11 +1,13 @@
 var angular = require('angular');
 require('angular-ui-router');
+require('angular-animate');
 
 require('ng-cache!./layout/np-pagination.tpl.html');
 
 var stackSearchModule = angular.module('stacksearch', [
   'ui.router',
-  'smart-table'
+  'smart-table',
+  'ngAnimate'
 ]);
 
 stackSearchModule.value('API_BASE_PATH', 'http://api.stackexchange.com/2.2');
