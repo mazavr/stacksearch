@@ -33,16 +33,20 @@
             <tfoot>
             <tr>
                 <td colspan="4" class="text-center">
-                    <div st-pagination="" st-items-by-page="10" st-displayed-pages="7" st-template="np-pagination.tpl.html"></div>
+                    <div st-pagination="" st-items-by-page="10" st-displayed-pages="7"
+                         st-template="np-pagination.tpl.html"></div>
                 </td>
             </tr>
             </tfoot>
         </table>
     </div>
     <div class="col-md-6">
-        <div ui-view>
-            <h3>Fast view panel</h3>
-            <p>Click on tag or author name to display relevant questions.</p>
+        <div class="ui-view-wrapper">
+            <div ui-view>
+                <h3>Fast view panel</h3>
+
+                <p>Click on tag or author name to display relevant questions.</p>
+            </div>
         </div>
     </div>
 </div>
