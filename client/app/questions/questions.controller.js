@@ -1,5 +1,3 @@
-require('angular-smart-table');
-
 module.exports = function (ngModule) {
   ngModule.controller('QuestionsController', ['QuestionsService', '$stateParams', function (QuestionsService, $stateParams) {
     var vm = this;

@@ -1,5 +1,6 @@
 var angular = require('angular');
 require('angular-ui-router');
+require('angular-smart-table');
 require('angular-animate');
 
 require('ng-cache!./layout/np-pagination.tpl.html');
