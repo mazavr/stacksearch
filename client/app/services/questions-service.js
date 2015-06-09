@@ -4,7 +4,8 @@ module.exports = function (ngModule) {
       getQuestions: getQuestions,
       getUserQuestions: getUserQuestions,
       getQuestionDetails: getQuestionDetails,
-      getTagQuestions: getTagQuestions
+      getTagQuestions: getTagQuestions,
+      getQuestionAnswers: getQuestionAnswers
     };
 
     function getQuestions(params) {
@@ -39,6 +40,16 @@ module.exports = function (ngModule) {
           order: 'desc',
           sort: 'activity',
           tagged: tag
+        }, params)
+      });
+    }
+
+    function getQuestionAnswers(questionId, params) {
+      return $http.get(API_BASE_PATH + '/questions/' + questionId + '/answers', {
+        params: angular.extend({
+          site: 'stackoverflow',
+          order: 'desc',
+          sort: 'activity'
         }, params)
       });
     }
