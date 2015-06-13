@@ -19,8 +19,8 @@ require('./questions/questions.controller')(angular.module('stacksearch'));
 require('./questions/user-questions.controller')(angular.module('stacksearch'));
 require('./questions/tag-questions.controller')(angular.module('stacksearch'));
 
-angular.module('stacksearch').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  //$locationProvider.html5mode({enabled: true, requireBase: false});
+angular.module('stacksearch').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  $locationProvider.html5Mode({enabled: true, requireBase: false});
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
