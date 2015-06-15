@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --content-base client",
     "deploy": "node ./node_modules/webpack/bin/webpack.js -p && copyfiles -f ./client/index.html dist",
-    "trydeploy": "node ./node_modules/http-server/bin/http-server ./dist"
+    "trydeploy": "node ./node_modules/http-server/bin/http-server ./dist -o"
   },
   "author": "",
   "license": "ISC",

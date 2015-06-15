@@ -1,5 +1,10 @@
 <form class="form-inline">
-    <label for="searchText">Search:</label>
-    <input type="text" class="form-control" ng-model="searchText" id="searchText">
-    <button class="btn btn-primary" ui-sref="search({title: searchText})">Search</button>
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="searchText" id="searchText" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-primary" ui-sref="search({title: searchText})">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+        </span>
+    </div>
 </form>
