@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --content-base client",
-    "deploy": "node ./node_modules/webpack/bin/webpack.js -p"
+    "deploy": "node ./node_modules/webpack/bin/webpack.js -p && copyfiles -f ./client/index.html dist",
+    "trydeploy": "node ./node_modules/http-server/bin/http-server ./dist"
   },
   "author": "",
   "license": "ISC",
@@ -18,10 +19,12 @@
     "animate.css": "^3.2.5",
     "bootstrap": "^3.3.4",
     "bootstrap-webpack": "0.0.3",
+    "copyfiles": "^0.2.1",
     "css-loader": "^0.14.4",
     "extract-text-webpack-plugin": "^0.8.1",
     "file-loader": "^0.8.4",
     "html-loader": "^0.3.0",
+    "http-server": "^0.8.0",
     "jquery": "^2.1.4",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",

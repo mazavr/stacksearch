@@ -2,12 +2,15 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: [
-   'animate.css/animate.css',
-   'bootstrap-webpack!./bootstrap.config.js',
-   './client/content/index.less',
-    './client/app/app.module.js'
-  ],
+  entry: {
+    app: [
+     'animate.css/animate.css',
+     'bootstrap-webpack!./bootstrap.config.js',
+     './client/content/index.less',
+     './client/app/app.module.js'
+    ],
+    vendors: ['angular', 'jquery']
+  },
   output: {
     path: __dirname + '/dist',
     filename: 'bundle.js'
@@ -16,16 +19,16 @@ module.exports = {
     loaders: [
       { test: /\.html$/, loader: 'raw', exclude: [/node_modules/, /\.tpl.html$/] },
 
-      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") },
-      { test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader") },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
+      { test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader') },
 
       // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
       // loads bootstrap's css.
-      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
-      { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff2" },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: 'url?limit=10000&mimetype=application/font-woff' },
+      { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,   loader: 'url?limit=10000&mimetype=application/font-woff2' },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: 'url?limit=10000&mimetype=application/octet-stream' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: 'file' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: 'url?limit=10000&mimetype=image/svg+xml' }
     ]
   },
   plugins: [
@@ -33,7 +36,8 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new ExtractTextPlugin("styles.css")
+    new ExtractTextPlugin('styles.css'),
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.bundle.js')
   ],
   devServer: {
     //port: 3000,
